@@ -24,13 +24,14 @@ set ttyfast                 " Speed up scrolling in Vim
 
 let g:airline#extensions#tabline#enabled = 1
 
-nnoremap <C-j> :tabprevious<CR>
-nnoremap <C-k> :tabnext<CR>
-map <C-t> :call g:tabulous#renameTab()<cr>
+nnoremap <C-j> :tabn<CR>
+nnoremap <C-k> :tabp<CR>
+nnoremap <C-x> :tabc<CR>
+nnoremap <C-t> :tabnew<CR>
+
 
 " Use <c-space> to trigger completion
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-
 
 
 call plug#begin()
@@ -49,7 +50,6 @@ call plug#begin()
  Plug 'webdevel/tabulous'
  Plug 'b0o/incline.nvim'
  Plug 'vim-airline/vim-airline'
- Plug 'github/copilot.vim'
  Plug 'kartikp10/noctis.nvim'
  Plug 'rktjmp/lush.nvim'
  Plug 'dasupradyumna/midnight.nvim'
