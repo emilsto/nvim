@@ -23,12 +23,14 @@ set ttyfast                 " Speed up scrolling in Vim
   " set backupdir=~/.cache/vim " Directory to store backup files.
 
 let g:airline#extensions#tabline#enabled = 1
-
-nnoremap <C-j> :tabn<CR>
-nnoremap <C-k> :tabp<CR>
-nnoremap <C-x> :tabc<CR>
+let mapleader = " "
+" Tabs
+nnoremap <C-j> :bnext<CR>
+nnoremap <C-k> :bprev<CR>
+nnoremap <C-x> :bd<CR>
 nnoremap <C-t> :tabnew<CR>
-
+" Floatterm
+nnoremap <C-t> :Floaterm<CR>
 
 " Use <c-space> to trigger completion
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
@@ -53,11 +55,26 @@ call plug#begin()
  Plug 'kartikp10/noctis.nvim'
  Plug 'rktjmp/lush.nvim'
  Plug 'dasupradyumna/midnight.nvim'
+ Plug 'numToStr/FTerm.nvim'
+ Plug 'voldikss/vim-floaterm'
+ Plug 'nvim-lua/plenary.nvim'
+ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
+ Plug 'rose-pine/neovim'
 call plug#end()
 
 colorscheme midnight
 
-" hi Normal guibg=NONE ctermbg=NONE "Transparent bg
+hi Normal guibg=NONE ctermbg=NONE "Transparent bg
 
 " Nerdtree
 nnoremap <C-n> :NERDTreeToggle<CR>
+" let NERDTreeMapOpenInTab='<ENTER>'
+
+
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>pf <cmd> Telescope git_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
